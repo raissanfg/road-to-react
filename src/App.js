@@ -21,19 +21,8 @@ const list = [
   },
  ];
 
-
-function App() {
+function List() {
   return (
-    <div>
-      <h1>My Hacker Stories</h1>
-
-      <label htmlFor="search">Search:</label>
-      <input id="search" type="text"/>
-
-      <hr /> {/* horizontal rule */}
-
-      {/*  render the list  */}
-      
       <ul>
         {list.map(function(item) {
           return (
@@ -48,6 +37,33 @@ function App() {
           );
         })}
       </ul>
+  );
+} 
+
+function Search() {
+  const handleChange = event => {
+    console.log(event);
+  }
+  return (
+    <div>
+      <label htmlFor="search">Search:</label>
+      <input id="search" type="text" onChange={handleChange}/>
+    </div>
+  )
+}
+
+
+
+function App() {
+  return (
+    <div>
+      <h1>My Hacker Stories</h1>
+
+      <Search />      {/* evocaing Search List */}
+      <hr />          {/* horizontal rule */}
+      <List />        {/* evocaing function List */}
+    
+
     </div> 
   );
 }
